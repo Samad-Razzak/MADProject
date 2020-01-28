@@ -21,9 +21,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 public class RecyclerViewMealByCategory extends RecyclerView.Adapter<RecyclerViewMealByCategory.RecyclerViewHolder> {
 
     private List<Meal> meals;
@@ -60,13 +57,12 @@ public class RecyclerViewMealByCategory extends RecyclerView.Adapter<RecyclerVie
     }
 
     static class RecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.mealThumb)
-        ImageView mealThumb;
-        @BindView(R.id.mealName)
+        ImageView mealThumb ;
         TextView mealName;
         RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
+            mealThumb = itemView.findViewById(R.id.mealThumb);
+            mealName = itemView.findViewById(R.id.mealName);
             itemView.setOnClickListener(this);
         }
 

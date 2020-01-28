@@ -93,7 +93,6 @@
                             android:paddingTop="5dp"
                             android:paddingBottom="14dp"
                             android:textSize="16sp"
-                            android:textColor="@color/colorPrimaryText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
@@ -125,7 +124,6 @@
                             android:paddingTop="5dp"
                             android:paddingBottom="14dp"
                             android:textSize="16sp"
-                            android:textColor="@color/colorPrimaryText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </LinearLayout>
@@ -163,7 +161,6 @@
                     android:paddingTop="15dp"
                     android:paddingBottom="15dp"
                     android:textSize="16sp"
-                    android:textColor="@color/colorPrimaryText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </android.support.v7.widget.CardView>
@@ -203,7 +200,6 @@
                                 android:paddingLeft="14dp"
                                 android:paddingRight="14dp"
                                 android:textSize="16sp"
-                                android:textColor="@color/colorPrimaryText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>
@@ -217,7 +213,6 @@
                                 android:paddingLeft="14dp"
                                 android:paddingRight="14dp"
                                 android:textSize="16sp"
-                                android:textColor="@color/colorPrimaryText"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content" />
                         </LinearLayout>

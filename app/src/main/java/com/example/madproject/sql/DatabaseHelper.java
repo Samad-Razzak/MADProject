@@ -12,6 +12,7 @@ import com.example.madproject.model.Meal;
 import com.example.madproject.model.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -319,7 +320,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return meals;
     }
 
-    public Meal getMealById(String id){
+    public Meal getMealByName(String name){
         Meal meal = new Meal();
 
         String[] columns = {
@@ -371,13 +372,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 Meal.COLUMN_MEAL_MEASURE18,
                 Meal.COLUMN_MEAL_MEASURE19,
                 Meal.COLUMN_MEAL_MEASURE20,
+                Meal.COLUMN_MEAL_YOUTUBE,
                 Meal.COLUMN_MEAL_SOURCE,
                 Meal.COLUMN_MEAL_DATEMODIFIED
         };
 
         SQLiteDatabase db = this.getWritableDatabase();
-        String selection = Meal.COLUMN_MEAL_ID + " = ?";
-        String[] selectionArgs = { id };
+        String selection = Meal.COLUMN_MEAL_NAME + " = ?";
+        String[] selectionArgs = { name };
 
         Cursor cursor = db.query(Meal.TABLE_MEAL,
                 columns,
@@ -486,6 +488,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     cursor.getColumnIndexOrThrow(Meal.COLUMN_MEAL_MEASURE19)));
             meal.setStrMeasure20(cursor.getString(
                     cursor.getColumnIndexOrThrow(Meal.COLUMN_MEAL_MEASURE20)));
+            meal.setStrYoutube(cursor.getString(
+                    cursor.getColumnIndexOrThrow(Meal.COLUMN_MEAL_YOUTUBE)));
             meal.setStrSource(cursor.getString(
                     cursor.getColumnIndexOrThrow(Meal.COLUMN_MEAL_SOURCE)));
             meal.setDateModified(cursor.getString(
@@ -493,6 +497,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
         return meal;
+    }
+
+    public List<Meal> getMealByCategoryName(String name){
+        ArrayList<Meal> meals = new ArrayList<Meal>();
+
+        String[] columns = {
+                Meal.COLUMN_MEAL_ID,
+                Meal.COLUMN_MEAL_NAME,
+                Meal.COLUMN_MEAL_THUMB
+        };
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selection = Meal.COLUMN_MEAL_CATEGORY + " = ?";
+        String[] selectionArgs = { name };
+
+        Cursor cursor = db.query(Meal.TABLE_MEAL,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null);
+
+        while (cursor.moveToNext()){
+            Meal meal = new Meal();
+            meal.setIdMeal(cursor.getInt(
+                    cursor.getColumnIndexOrThrow(Meal.COLUMN_MEAL_ID)));
+            meal.setStrMeal(cursor.getString(
+                    cursor.getColumnIndexOrThrow(Meal.COLUMN_MEAL_NAME)));
+            meal.setStrMealThumb(cursor.getString(
+                    cursor.getColumnIndexOrThrow(Meal.COLUMN_MEAL_THUMB)));
+
+            meals.add(meal);
+
+        }
+        return meals;
     }
 
 }

@@ -11,8 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DetailActivity"></activity>
-        <activity android:name=".CategoryActivity" />
+        <activity android:name=".CategoryFragment"></activity>
+        <activity
+            android:name=".DetailActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".CategoryActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".HomeActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

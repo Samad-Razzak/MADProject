@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.madproject.CategoryFragment;
 import com.example.madproject.model.Category;
 
 import java.util.List;
@@ -27,14 +28,13 @@ public class ViewPagerCategoryAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int i) {
-        //CategoryFragment fragment = new CategoryFragment();
+        CategoryFragment fragment = new CategoryFragment();
         Bundle args = new Bundle();
         args.putString("EXTRA_DATA_NAME", categories.get(i).getStrCategory());
         args.putString("EXTRA_DATA_DESC", categories.get(i).getStrCategoryDescription());
         args.putString("EXTRA_DATA_IMAGE", categories.get(i).getStrCategoryThumb());
-        //fragment.setArguments(args);
-        //return fragment;
-        return null;
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Override

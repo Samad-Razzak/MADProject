@@ -63,7 +63,6 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
     public void setCategory(ArrayList<Category> category) {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
         recyclerView.setLayoutManager(gridLayoutManager);
